@@ -1,0 +1,5 @@
+bonjour '\n' /n \n fin de la premiere ligne '\n'
+ligne 2
+ligne 3
+ligne 4
+ligne 5
