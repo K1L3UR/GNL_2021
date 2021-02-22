@@ -25,7 +25,7 @@ int    main(int argc, char **argv)
     {
         ret = get_next_line(fd, &line);
         printf("%i-%s\n", ret, line);
-        write(fd_w, line, strlen(line));
+        //write(fd_w, line, strlen(line));
         if (ret != 0)
             write(fd_w, "\n", 1);
     }
