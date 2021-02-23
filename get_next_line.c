@@ -1,11 +1,5 @@
 #include "get_next_line.h"
 
-/*
-	verifier ft_memcpy(string, stock(value = 0), stock_len(value = 0) puis je le faire sans erreur sur mon ft_memcpy;
-
-
-*/
-
 static ssize_t	gnl_read(int fd, char **stock)
 {
 	ssize_t	ret;
@@ -23,7 +17,7 @@ static ssize_t	gnl_read(int fd, char **stock)
 			stock_len = ft_strlen(*stock);
 		if (!(string = ft_calloc(ret + stock_len + 1, 1)))
 			return (-1);
-		ft_memcpy(string, *stock, stock_len); // verif implementation ft_memcpy -> src = NULL stock_len = 0 | 
+		ft_memcpy(string, *stock, stock_len);
 		ft_memcpy(string + stock_len, buf, ret);
 		if (*stock)
 			free(*stock);
