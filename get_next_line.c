@@ -6,7 +6,7 @@
 /*   By: arnduran <arnduran@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/24 00:28:22 by arnduran          #+#    #+#             */
-/*   Updated: 2021/02/24 00:42:41 by arnduran         ###   ########.fr       */
+/*   Updated: 2021/02/24 01:46:45 by arnduran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,12 +45,12 @@ static	int		gnl_fill_line(char **stock, char **line)
 
 	if (*stock == NULL)
 	{
-		*line = calloc(1, 1);
+		*line = ft_calloc(1, 1);
 		return (0);
 	}
-	if ((position_eol = strchr(*stock, '\n')) != NULL)
+	if ((position_eol = ft_strchr(*stock, '\n')) != NULL)
 	{
-		if ((*line = calloc(position_eol - *stock + 1, 1)) == NULL)
+		if ((*line = ft_calloc(position_eol - *stock + 1, 1)) == NULL)
 			return (-1);
 		ft_memcpy(*line, *stock, position_eol - *stock);
 		if ((tmp = ft_calloc(ft_strlen(position_eol) + 1, 1)) == NULL)
