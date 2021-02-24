@@ -1,11 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: arnduran <arnduran@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/02/24 00:28:22 by arnduran          #+#    #+#             */
+/*   Updated: 2021/02/24 00:42:41 by arnduran         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "get_next_line.h"
 
 static ssize_t	gnl_read(int fd, char **stock)
 {
-	ssize_t	ret;
-	char	buf[BUFFER_SIZE];
-	char	*string;
-	size_t	stock_len;
+	ssize_t		ret;
+	char		buf[BUFFER_SIZE];
+	char		*string;
+	size_t		stock_len;
 
 	stock_len = 0;
 	ret = 1;
@@ -26,7 +38,7 @@ static ssize_t	gnl_read(int fd, char **stock)
 	return (ret);
 }
 
-static	int gnl_fill_line(char **stock, char **line)
+static	int		gnl_fill_line(char **stock, char **line)
 {
 	char	*position_eol;
 	char	*tmp;
@@ -36,8 +48,7 @@ static	int gnl_fill_line(char **stock, char **line)
 		*line = calloc(1, 1);
 		return (0);
 	}
-	position_eol = strchr(*stock, '\n');
-	if (position_eol != NULL)
+	if ((position_eol = strchr(*stock, '\n')) != NULL)
 	{
 		if ((*line = calloc(position_eol - *stock + 1, 1)) == NULL)
 			return (-1);
@@ -56,10 +67,10 @@ static	int gnl_fill_line(char **stock, char **line)
 	return (0);
 }
 
-int		get_next_line(int fd, char **line)
+int				get_next_line(int fd, char **line)
 {
-	static	char	*stock = NULL;
-	int		ret;
+	static char	*stock = NULL;
+	int			ret;
 
 	if (fd < 0 || line == NULL || BUFFER_SIZE <= 0)
 		return (-1);
